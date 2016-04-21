@@ -1,0 +1,14 @@
+{
+  "name": "easy-loop",
+  "version": "1.1.2",  
+  "description": "Easy sync loop processing for Node.js",
+  "main": "lib/easy-loop",
+  "scripts": {
+    "test": "node \"./test/easy-loop-test\""
+  },
+  "keywords": [
+    "serial","loop","forEach","for","while","sync","easy loop","easy for","easy while","sync loop","iteration","step by step","concurrency","async","parallel"
+  ],
+  "author": "humy2833 <humy2833@gmail.com>",
+  "license": "MIT"
+}

@@ -12,7 +12,7 @@
 		loop(arg1, arg2[, arg3, arg4]) == loop.for() == loop.while() == loop.loop()
 		
 	2) Arguments	
-		(1) Array or Object 	- require
+		(1) Array or Object or function	- require
 		(2) process function 	- require
 		(3) concurrency	number 	- option (default : 1)
 		(4) callback function 	- option (default : nothing)
@@ -183,4 +183,42 @@
 	err :  undefined
 	Case 6 result
 	Result : Now Second :  5
+	*/
+	
+	
+	
+	
+	
+	
+	var num = 0;
+	console.log("Case7 Start => while and 3 arguments");
+	console.log("Start : Now Second : ", new Date().getSeconds());
+	loop.while(function(){
+		return num < 5;
+	}, function(next){
+		setTimeout(function(){
+			console.log("Date : ", new Date().getSeconds());
+			num++;
+			next();
+		}, 1000);
+	}, function(err){
+		console.log("err : ", err);
+		console.log("Case 7 result");
+		console.log("Result : Now Second : ", new Date().getSeconds());
+	});
+	console.log("Case7 End");
+	
+	/*
+	결과(Result) - 5초 소요(run time : 5 second)
+	Case7 Start => while and 3 arguments
+	Start : Now Second :  20
+	Case7 End
+	Date :  21
+	Date :  22
+	Date :  23
+	Date :  24
+	Date :  25
+	err :  undefined
+	Case 7 result
+	Result : Now Second :  25
 	*/

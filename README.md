@@ -9,8 +9,7 @@
 		: 모두 같은 동작이며 편리한 메소드를 호출하세요.
 		
 		var loop = require('easy-loop');
-		loop(arg, arg [, arg, arg]) == loop.for()
-		loop.while(arg, arg [, arg])
+		loop(arg, arg [, arg, arg]) == loop.for() == loop.while()		
 		
 	2) Arguments	
 		(1) Array or Object or function	- require

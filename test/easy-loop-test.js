@@ -80,7 +80,7 @@ console.log("Case5 End");
 
 
 
-
+*/
 var arr = [];
 for(var i=0; i<10000; i++) arr.push(i);
 console.log("Case6 Start => concurrency and 4 arguments");
@@ -96,7 +96,7 @@ loop(arr, function(i, value, next){
 	console.log("Result : Now Second : ", new Date().getSeconds());
 });
 console.log("Case6 End");
-*/
+
 
 /*
 var num = 0;
@@ -116,7 +116,7 @@ loop.while(function(){
 	console.log("Result : Now Second : ", new Date().getSeconds());
 });
 console.log("Case7 End");
-*/
+
 
 
 
@@ -138,4 +138,4 @@ loop.while(function(){
 	console.log("Result : Now Second : ", new Date().getSeconds());
 });
 console.log("Case8 End");
-
+*/

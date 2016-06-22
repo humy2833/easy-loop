@@ -16,6 +16,8 @@
 		(2) process function 	- require
 		(3) concurrency	number 	- option (default : 1)
 		(4) callback function 	- option (default : nothing)
+		
+		* TIP : arg2 와 arg3 의 인자값은 순서 변경 가능
 	
 ## Examples
 
@@ -171,7 +173,9 @@
 	});
 	console.log("Case6 End => concurrency");
 	
-	/* 결과(Result) - 2초 소요(run time : 2 second)
+	/*
+	*Tip : arguments(arr, function, concurrency, callback) == arguments(arr, concurrency, function, callback) 
+	결과(Result) - 2초 소요(run time : 2 second)
 	Case6 Start => concurrency and 4 arguments
 	Start : Now Second :  3
 	Case6 End => concurrency

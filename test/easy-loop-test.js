@@ -98,6 +98,7 @@ loop(arr, function(i, value, next){
 console.log("Case6 End");
 */
 
+/*
 var num = 0;
 console.log("Case7 Start => while and 3 arguments");
 console.log("Start : Now Second : ", new Date().getSeconds());
@@ -115,4 +116,26 @@ loop.while(function(){
 	console.log("Result : Now Second : ", new Date().getSeconds());
 });
 console.log("Case7 End");
+*/
+
+
+
+
+var num = 0;
+console.log("Case8 Start => while and 3 arguments and break(or error)");
+console.log("Start : Now Second : ", new Date().getSeconds());
+loop.while(function(){
+	return num < 5;
+}, function(next){
+	setTimeout(function(){
+		console.log("Date : ", new Date().getSeconds());
+		num++;
+		next(num === 1 ? true : false);
+	}, 1000);
+}, function(err){
+	console.log("err : ", err);
+	console.log("Case 7 result");
+	console.log("Result : Now Second : ", new Date().getSeconds());
+});
+console.log("Case8 End");
 

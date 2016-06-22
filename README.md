@@ -9,7 +9,8 @@
 		: 모두 같은 동작이며 편리한 메소드를 호출하세요.
 		
 		var loop = require('easy-loop');
-		loop(arg1, arg2[, arg3, arg4]) == loop.for() == loop.while() == loop.loop()
+		loop(arg, arg [, arg, arg]) == loop.for()
+		loop.while(arg, arg [, arg])
 		
 	2) Arguments	
 		(1) Array or Object or function	- require
@@ -78,7 +79,7 @@
 	
 	var arr = [1,2,3,4,5];
 	console.log("Case3 Start => Array and error(or break) and 3 arguments");
-	loop.while(arr, function(i, value, next){
+	loop(arr, function(i, value, next){
 		setTimeout(function(){
 			console.log(i, "=>", value);
 			if(i === 2)	next("error or break");
@@ -105,7 +106,7 @@
 	
 	var obj = {a:1,b:2,c:3,d:4,e:5};
 	console.log("Case4 Start => Object and 3 arguments");
-	loop.loop(obj, function(key, value, next){
+	loop(obj, function(key, value, next){
 		setTimeout(function(){
 			console.log(key, "=>", value);
 			next();
@@ -221,4 +222,35 @@
 	err :  undefined
 	Case 7 result
 	Result : Now Second :  25
+	*/
+	
+	
+	
+	
+	var num = 0;
+	console.log("Case8 Start => while and 3 arguments and break(or error)");
+	console.log("Start : Now Second : ", new Date().getSeconds());
+	loop.while(function(){
+		return num < 5;
+	}, function(next){
+		setTimeout(function(){
+			console.log("Date : ", new Date().getSeconds());
+			num++;
+			next(num === 1 ? true : false);
+		}, 1000);
+	}, function(err){
+		console.log("err : ", err);
+		console.log("Case 8 result");
+		console.log("Result : Now Second : ", new Date().getSeconds());
+	});
+	console.log("Case8 End");
+	
+	/*
+	Case8 Start => while and 3 arguments and break(or error)
+	Start : Now Second :  21
+	Case8 End
+	Date :  22
+	err :  true
+	Case 8 result
+	Result : Now Second :  22
 	*/

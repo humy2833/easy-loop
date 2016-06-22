@@ -1,6 +1,6 @@
 {
   "name": "easy-loop",
-  "version": "1.2.0",  
+  "version": "1.2.1",  
   "description": "Easy sync loop processing for Node.js",
   "main": "lib/easy-loop",
   "scripts": {
@@ -9,6 +9,13 @@
   "keywords": [
     "serial","loop","forEach","for","while","sync","easy loop","easy for","easy while","sync loop","iteration","step by step","concurrency","async","parallel"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/humy2833/easy-loop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/humy2833/easy-loop/issues"
+  },
   "author": "humy2833 <humy2833@gmail.com>",
   "license": "MIT"
 }

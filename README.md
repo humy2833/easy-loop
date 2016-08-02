@@ -12,12 +12,12 @@
 		loop(arg, arg [, arg, arg]) == loop.for() == loop.while()		
 		
 	2) Arguments	
-		(1) Array or Object or function	- require
+		(1) Array or Object or function or iteration number	- require
 		(2) process function 	- require
 		(3) concurrency	number 	- option (default : 1)
 		(4) callback function 	- option (default : nothing)
 		
-		* TIP : arg2 와 arg3 의 인자값은 순서 변경 가능
+		* TIP : arg2 와 arg3 의 인자값은 순서 변경 가능(arg3 and arg3 can be swap)
 	
 ## Examples
 

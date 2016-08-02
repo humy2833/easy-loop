@@ -80,7 +80,7 @@ console.log("Case5 End");
 
 
 
-*/
+
 var arr = [];
 for(var i=0; i<10000; i++) arr.push(i);
 console.log("Case6 Start => concurrency and 4 arguments");
@@ -98,7 +98,7 @@ loop(arr, function(i, value, next){
 console.log("Case6 End");
 
 
-/*
+
 var num = 0;
 console.log("Case7 Start => while and 3 arguments");
 console.log("Start : Now Second : ", new Date().getSeconds());
@@ -134,8 +134,43 @@ loop.while(function(){
 	}, 1000);
 }, function(err){
 	console.log("err : ", err);
-	console.log("Case 7 result");
+	console.log("Case 8 result");
 	console.log("Result : Now Second : ", new Date().getSeconds());
 });
 console.log("Case8 End");
+*/
+
+/*
+console.log("Case9 Start => When only know the number of iterations. 2 or 3 arguments possible");
+console.log("Start : Now Second : ", new Date().getSeconds());
+var loopCount = 5;
+loop(loopCount, function(i, next){
+	setTimeout(function(){
+		console.log(i, "Date : ", new Date().getSeconds());
+		next();
+	}, 1000);
+}, function(err){
+	console.log("err : ", err);
+	console.log("Case 9 result");
+	console.log("Result : Now Second : ", new Date().getSeconds());
+});
+console.log("Case9 End");
+*/
+
+/*
+console.log("Case10 Start => When only know the number of iterations");
+console.log("Start : Now Second : ", new Date().getSeconds());
+var handle = loop.create(10, function(err){
+	console.log("err : ", err);
+	console.log("Case 10 result");
+	console.log("Result : Now Second : ", new Date().getSeconds());
+});
+for(var i=0; i<10; i++)
+{
+	setTimeout(function(){
+		console.log("Date : ", new Date().getSeconds());
+	  handle.next();
+	}, 1000);
+}
+console.log("Case10 End");
 */

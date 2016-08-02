@@ -257,3 +257,72 @@
 	Case 8 result
 	Result : Now Second :  22
 	*/
+
+
+
+	console.log("Case9 Start => When only know the number of iterations. 2 arguments or 3 arguments(concurrency) and break possible");
+	console.log("Start : Now Second : ", new Date().getSeconds());
+	var loopCount = 5;
+	loop(loopCount, function(i, next){
+		setTimeout(function(){
+			console.log(i, "Date : ", new Date().getSeconds());
+			next();	// break => next(err);
+		}, 1000);
+	}, function(err){
+		console.log("err : ", err);
+		console.log("Case 9 result");
+		console.log("Result : Now Second : ", new Date().getSeconds());
+	});
+	console.log("Case9 End");
+
+	/*
+	Case9 Start => When only know the number of iterations. 2 arguments or 3 arguments(concurrency) and break possible
+	Start : Now Second :  23
+	Case9 End
+	0 'Date : ' 24
+	1 'Date : ' 25
+	2 'Date : ' 26
+	3 'Date : ' 27
+	4 'Date : ' 28
+	err :  undefined
+	Case 9 result
+	Result : Now Second :  28
+	*/
+
+
+
+
+	console.log("Case10 Start => When only know the number of iterations. break possible");
+	console.log("Start : Now Second : ", new Date().getSeconds());
+	var handle = loop.create(10, function(err){
+		console.log("err : ", err);
+		console.log("Case 10 result");
+		console.log("Result : Now Second : ", new Date().getSeconds());
+	});
+	for(var i=0; i<10; i++)
+	{
+		setTimeout(function(){
+			console.log("Date : ", new Date().getSeconds());
+			handle.next();	// break => handle.next(err);
+		}, 1000);
+	}
+	console.log("Case10 End");
+
+	/*
+	Case10 Start => When only know the number of iterations
+	Start : Now Second :  20
+	Case10 End
+	Date :  21
+	Date :  21
+	Date :  21
+	Date :  21
+	Date :  21
+	Date :  21
+	Date :  21
+	Date :  21
+	Date :  21
+	Date :  21
+	err :  undefined
+	Case 10 result
+	Result : Now Second :  21
+	*/

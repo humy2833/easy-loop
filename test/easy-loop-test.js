@@ -174,3 +174,124 @@ for(var i=0; i<10; i++)
 }
 console.log("Case10 End");
 */
+
+
+
+/*
+console.log("Case11 Start => Array. Like as 'async.series'. If the error is when to stop.");
+console.log("Start : Now Second : ", new Date().getSeconds());
+var arr = [
+	function(callback){
+		console.log("start series");
+		callback();
+	},
+	function(callback){
+		setTimeout(function(){
+			console.log(100);
+			callback(null, 100);
+		}, 1000);
+	}, function(callback){
+		setTimeout(function(){
+			console.log(200);
+			callback(null, 200);
+		}, 500);
+	}
+];
+loop.series(arr, function(err, results){
+	console.log("err : ", err);
+	console.log("results : ", JSON.stringify(results));
+	console.log("Result : Now Second : ", new Date().getSeconds());
+});
+console.log("Case11 End");
+*/
+
+
+
+/*
+console.log("Case12 Start => Object. Like as 'async.series'. If the error is when to stop.");
+console.log("Start : Now Second : ", new Date().getSeconds());
+var obj = {
+	one :	function(callback){
+		console.log("start series");
+		callback();
+	},
+	two : function(callback){
+		setTimeout(function(){
+			console.log(100);
+			callback(null, 100);
+		}, 1000);
+	}, 
+	three : function(callback){
+		setTimeout(function(){
+			console.log(200);
+			callback(null, 200);
+		}, 500);
+	}
+};
+loop.series(obj, function(err, results){
+	console.log("err : ", err);
+	console.log("results : ", JSON.stringify(results));
+	console.log("Result : Now Second : ", new Date().getSeconds());
+});
+console.log("Case12 End");
+*/
+
+
+
+
+/*
+console.log("Case13 Start => Array. Like as 'async.parallel'. If the error is when to stop.");
+console.log("Start : Now Second : ", new Date().getSeconds());
+var arr = [
+	function(callback){
+		console.log("start parallel");
+		callback();
+	},
+	function(callback){
+		setTimeout(function(){
+			console.log(100);
+			callback(null, 100);
+		}, 500);
+	}, function(callback){
+		setTimeout(function(){
+			console.log(200);
+			callback(null, 200);
+		}, 500);
+	}
+];
+loop.parallel(arr, function(err, results){
+	console.log("err : ", err);
+	console.log("results : ", JSON.stringify(results));
+	console.log("Result : Now Second : ", new Date().getSeconds());
+});
+console.log("Case13 End");
+*/
+
+
+
+console.log("Case14 Start => Object. Like as 'async.parallel'. If the error is when to stop.");
+console.log("Start : Now Second : ", new Date().getSeconds());
+var obj = {
+	one :	function(callback){
+		console.log("start parallel");
+		callback();
+	},
+	two : function(callback){
+		setTimeout(function(){
+			console.log(100);
+			callback(null, 100);
+		}, 500);
+	}, 
+	three : function(callback){
+		setTimeout(function(){
+			console.log(200);
+			callback(null, 200);
+		}, 500);
+	}
+};
+loop.parallel(obj, function(err, results){
+	console.log("err : ", err);
+	console.log("results : ", JSON.stringify(results));
+	console.log("Result : Now Second : ", new Date().getSeconds());
+});
+console.log("Case14 End");

@@ -326,3 +326,170 @@
 	Case 10 result
 	Result : Now Second :  21
 	*/
+
+
+
+
+	console.log("Case11 Start => Array. Like as 'async.series' of async module. If the error is when to stop.");
+	console.log("Start : Now Second : ", new Date().getSeconds());
+	var arr = [
+		function(callback){
+			console.log("start series");
+			callback();
+		},
+		function(callback){
+			setTimeout(function(){
+				console.log(100);
+				callback(null, 100);
+			}, 1000);
+		}, function(callback){
+			setTimeout(function(){
+				console.log(200);
+				callback(null, 200);
+			}, 1000);
+		}
+	];
+	loop.series(arr, function(err, results){
+		console.log("err : ", err);
+		console.log("results : ", JSON.stringify(results));
+		console.log("Result : Now Second : ", new Date().getSeconds());
+	});
+	console.log("Case11 End");
+
+	/*
+	Case11 Start => Array. Like as 'async.series' of async module. If the error is when to stop.
+	Start : Now Second :  50
+	start series
+	Case11 End
+	100
+	200
+	err :  undefined
+	results :  [null,100,200]
+	Result : Now Second :  52
+	*/
+
+
+
+
+	console.log("Case12 Start => Object. Like as 'async.series' of async module. If the error is when to stop.");
+	console.log("Start : Now Second : ", new Date().getSeconds());
+	var obj = {
+		one :	function(callback){
+			console.log("start series");
+			callback();
+		},
+		two : function(callback){
+			setTimeout(function(){
+				console.log(100);
+				callback(null, 100);
+			}, 1000);
+		}, 
+		three : function(callback){
+			setTimeout(function(){
+				console.log(200);
+				callback(null, 200);
+			}, 1000);
+		}
+	};
+	loop.series(obj, function(err, results){
+		console.log("err : ", err);
+		console.log("results : ", JSON.stringify(results));
+		console.log("Result : Now Second : ", new Date().getSeconds());
+	});
+	console.log("Case12 End");
+
+	/*
+	Case12 Start => Object. Like as 'async.series' of async module. If the error is when to stop.
+	Start : Now Second :  38
+	start series
+	Case12 End
+	100
+	200
+	err :  undefined
+	results :  {"one":null,"two":100,"three":200}
+	Result : Now Second :  40
+	*/
+	
+
+
+
+
+	console.log("Case13 Start => Array. Like as 'async.parallel' of async module. If the error is when to stop.");
+	console.log("Start : Now Second : ", new Date().getSeconds());
+	var arr = [
+		function(callback){
+			console.log("start parallel");
+			callback();
+		},
+		function(callback){
+			setTimeout(function(){
+				console.log(100);
+				callback(null, 100);
+			}, 500);
+		}, function(callback){
+			setTimeout(function(){
+				console.log(200);
+				callback(null, 200);
+			}, 500);
+		}
+	];
+	loop.parallel(arr, function(err, results){
+		console.log("err : ", err);
+		console.log("results : ", JSON.stringify(results));
+		console.log("Result : Now Second : ", new Date().getSeconds());
+	});
+	console.log("Case13 End");
+	
+	/*
+	Case13 Start => Array. Like as 'async.parallel' of async module. If the error is when to stop.
+	Start : Now Second :  55
+	start parallel
+	Case13 End
+	100
+	200
+	err :  undefined
+	results :  [null,100,200]
+	Result : Now Second :  55
+	*/
+
+
+
+
+	console.log("Case14 Start => Object. Like as 'async.parallel' of async module. If the error is when to stop.");
+	console.log("Start : Now Second : ", new Date().getSeconds());
+	var obj = {
+		one :	function(callback){
+			console.log("start parallel");
+			callback();
+		},
+		two : function(callback){
+			setTimeout(function(){
+				console.log(100);
+				callback(null, 100);
+			}, 500);
+		}, 
+		three : function(callback){
+			setTimeout(function(){
+				console.log(200);
+				callback(null, 200);
+			}, 500);
+		}
+	};
+	loop.parallel(obj, function(err, results){
+		console.log("err : ", err);
+		console.log("results : ", JSON.stringify(results));
+		console.log("Result : Now Second : ", new Date().getSeconds());
+	});
+	console.log("Case14 End");
+
+	/*
+	Case14 Start => Object. Like as 'async.parallel' of async module. If the error is when to stop.
+	Start : Now Second :  59
+	start parallel
+	Case14 End
+	100
+	200
+	err :  undefined
+	results :  {"one":null,"two":100,"three":200}
+	Result : Now Second :  59
+	*/

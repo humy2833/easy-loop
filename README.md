@@ -46,7 +46,7 @@
 
 	2) Arguments
 		(1) Array or Object - require
-		(2)	callback function - option
+		(2) callback function - option
 	
 
 ## Examples

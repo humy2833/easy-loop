@@ -4,7 +4,7 @@
 	* 쉬운 동기식 반복처리
 	* 선택적 병렬처리
 
-## Comment
+## iteration function
 	1) Method
 		: 모두 같은 동작이며 편리한 메소드를 호출하세요.
 		
@@ -18,7 +18,37 @@
 		(4) callback function 	- option (default : nothing)
 		
 		* TIP : arg2 와 arg3 의 인자값은 순서 변경 가능(arg3 and arg3 can be swap)
+
+
+## series or parallel function
+	1) Method
+		var loop = require('easy-loop');
+		loop.series([
+			function(callback){
+				var result = "success";
+				callback(null, result);
+			},
+		...], function(err, results){
+			//err : undefined
+			//results : ["success"...]
+		});
+
+		loop.parallel({
+			one : function(callback){
+				var result = "success";
+				callback(null, result);
+			},
+		...}, function(err, results){
+			//err : undefined
+			//results : {"one":"success"...}
+		});
+
+
+	2) Arguments
+		(1) Array or Object - require
+		(2)	callback function - option
 	
+
 ## Examples
 
 	var loop = require('easy-loop');
@@ -439,7 +469,7 @@
 		console.log("Result : Now Second : ", new Date().getSeconds());
 	});
 	console.log("Case13 End");
-	
+
 	/*
 	Case13 Start => Array. Like as 'async.parallel' of async module. If the error is when to stop.
 	Start : Now Second :  55

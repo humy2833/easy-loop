@@ -23,7 +23,7 @@
 ## series or parallel function
 	1) Method
 		var loop = require('easy-loop');
-		//series([function...] [, concurrency] [, callback]) -> 'concurrency' defailt 1
+		//series([function...] [, concurrency] [, callback]) -> 'concurrency' default 1
 		loop.series([
 			function(callback){
 				var result = "success";

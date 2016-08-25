@@ -190,11 +190,12 @@ var arr = [
 			console.log(100);
 			callback(null, 100);
 		}, 1000);
-	}, function(callback){
+	}, 
+	function(callback){
 		setTimeout(function(){
 			console.log(200);
 			callback(null, 200);
-		}, 500);
+		}, 1000);
 	}
 ];
 loop.series(arr, function(err, results){
@@ -268,7 +269,7 @@ console.log("Case13 End");
 */
 
 
-
+/*
 console.log("Case14 Start => Object. Like as 'async.parallel'. If the error is when to stop.");
 console.log("Start : Now Second : ", new Date().getSeconds());
 var obj = {
@@ -295,3 +296,4 @@ loop.parallel(obj, function(err, results){
 	console.log("Result : Now Second : ", new Date().getSeconds());
 });
 console.log("Case14 End");
+*/

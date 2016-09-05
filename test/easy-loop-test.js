@@ -297,3 +297,51 @@ loop.parallel(obj, function(err, results){
 });
 console.log("Case14 End");
 */
+
+
+console.log("Case15 Start => Array(or Object). Like as 'async.series'. But sub functions run parallel.");
+console.log("Start : Now Second : ", new Date().getSeconds());
+var obj = [
+	[
+		function(cb){
+			setTimeout(function(){console.log(new Date().getSeconds(), "sub1");
+			cb(null, "sub1");}, 1000)
+	}, 
+		function(cb){
+			setTimeout(function(){console.log(new Date().getSeconds(), "sub2");
+			cb(null, "sub2");}, 1000)
+		}
+	],
+	function(callback){
+		setTimeout(function(){
+			console.log(new Date().getSeconds(), 100);
+			callback(null, 100);
+		}, 1000);
+	}, 
+	function(callback){
+		setTimeout(function(){
+			console.log(new Date().getSeconds(), 200);
+			callback(null, 200);
+		}, 1000);
+	}
+];
+loop.series(obj, function(err, results){
+	console.log("err : ", err);
+	console.log("results : ", JSON.stringify(results));
+	console.log("Result : Now Second : ", new Date().getSeconds());
+});
+console.log("Case15 End");
+
+/*
+Case15 Start => Array(or Object). Like as 'async.series'. But sub functions run
+parallel.
+Start : Now Second :  59
+Case15 End
+0 'sub1'
+0 'sub2'
+1 100
+2 200
+err :  undefined
+results :  [["sub1","sub2"],100,200]
+Result : Now Second :  2
+*/

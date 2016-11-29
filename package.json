@@ -1,6 +1,6 @@
 {
   "name": "easy-loop",
-  "version": "1.4.7",
+  "version": "1.4.8",
   "description": "Easy sync loop processing for Node.js",
   "main": "lib/easy-loop",
   "scripts": {

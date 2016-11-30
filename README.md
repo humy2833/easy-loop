@@ -20,7 +20,7 @@
 		* TIP : arg2 와 arg3 의 인자값은 순서 변경 가능(arg3 and arg3 can be swap)
 
 
-## series or parallel function
+## series or parallel or waterfall function
 	1) Method
 		var loop = require('easy-loop');
 		//series('function array or object' [, concurrency] [, callback]) -> 'concurrency' default 1
@@ -44,9 +44,27 @@
 			//results : {"one":"success"...}
 		});
 
+		loop.waterfall([
+			function(callback){
+				var arg1 = 1;				
+				callback(null, arg1);
+			},
+			function(arg, callback){
+				//console.log(arg) => 1
+				var arg1 = 2;				
+				callback(null, arg, arg1);
+			},
+			function(arg1, arg2, callback){
+				//console.log(arg1, arg2) => 1, 2
+				var arg1 = 3;				
+				callback(null, arg1);
+			}], function(err, results){
+			//err : undefined
+			//console.log(results) => 3
+		});
 
 	2) Arguments
-		(1) Array or Object - require
+		(1) Array or Object (waterfall only Array) - require
 		(2) callback function - option
 	
 

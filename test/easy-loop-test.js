@@ -42,9 +42,9 @@ loop.while(arr, function(i, value, next){
 	console.log("Case 3 result");
 });
 console.log("Case3 End");
+*/
 
-
-
+/*
 var obj = {a:1,b:2,c:3,d:4,e:5};
 console.log("Case4 Start => Object and 3 arguments");
 loop.loop(obj, function(key, value, next){
@@ -57,10 +57,10 @@ loop.loop(obj, function(key, value, next){
 	console.log("Case 4 result");
 });
 console.log("Case4 End");
+*/
 
 
-
-
+/*
 
 
 var arr = [];
@@ -298,7 +298,7 @@ loop.parallel(obj, function(err, results){
 console.log("Case14 End");
 */
 
-
+/*
 console.log("Case15 Start => Array(or Object). Like as 'async.series'. But sub functions run parallel.");
 console.log("Start : Now Second : ", new Date().getSeconds());
 var obj = [
@@ -331,6 +331,7 @@ loop.series(obj, function(err, results){
 	console.log("Result : Now Second : ", new Date().getSeconds());
 });
 console.log("Case15 End");
+*/
 
 /*
 Case15 Start => Array(or Object). Like as 'async.series'. But sub functions run
@@ -344,4 +345,43 @@ Case15 End
 err :  undefined
 results :  [["sub1","sub2"],100,200]
 Result : Now Second :  2
+*/
+
+
+/*
+console.log("Case16 Start => Array. Like as 'async.waterfall'. If the error is when to stop.");
+console.log("Start : Now Second : ", new Date().getSeconds());
+var arr = [
+	function(callback){
+		console.log("start waterfall", arguments);
+		callback(null, 1);
+	},
+	function(num1, callback){
+		setTimeout(function(){
+			console.log(100);
+			callback(null, num1, 100);
+		}, 500);
+	}, function(num1, num2, callback){
+		setTimeout(function(){
+			console.log(200);
+			callback(null, num1, num2, 200);
+		}, 500);
+	}
+];
+loop.waterfall(arr, function(err, num1, num2, num3){
+	console.log("result : ", JSON.stringify(arguments));
+	console.log("Result : Now Second : ", new Date().getSeconds());
+});
+console.log("Case16 End");
+*/
+
+/*
+Case16 Start => Array. Like as 'async.waterfall'. If the error is when to stop.
+Start : Now Second :  14
+start waterfall { '0': [Function] }
+Case16 End
+100
+200
+result :  {"0":null,"1":1,"2":100,"3":200}
+Result : Now Second :  15
 */

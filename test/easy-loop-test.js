@@ -385,3 +385,11 @@ Case16 End
 result :  {"0":null,"1":1,"2":100,"3":200}
 Result : Now Second :  15
 */
+
+/*
+var arr1 = [function(next){console.log("1 start");setTimeout(function(){console.log("1 end");next()}, 2000)}, function(next){console.log("11 start");setTimeout(function(){console.log("11 end");next()}, 1000)}, function(next){console.log("111 start");setTimeout(function(){console.log("111 end");next()}, 3000)}];
+var arr2 = [function(next){console.log("2 start");setTimeout(function(){console.log("2 end");next()}, 5000)}, function(next){console.log("22 start");setTimeout(function(){console.log("22 end");next()}, 1000)}, function(next){console.log("222 start");setTimeout(function(){console.log("222 end");next()}, 1000)}];
+loop.ping(arr1, arr2, 1, function(err){
+	console.log("end");
+});
+*/

@@ -386,10 +386,101 @@ result :  {"0":null,"1":1,"2":100,"3":200}
 Result : Now Second :  15
 */
 
+
+
 /*
-var arr1 = [function(next){console.log("1 start");setTimeout(function(){console.log("1 end");next()}, 2000)}, function(next){console.log("11 start");setTimeout(function(){console.log("11 end");next()}, 1000)}, function(next){console.log("111 start");setTimeout(function(){console.log("111 end");next()}, 3000)}];
-var arr2 = [function(next){console.log("2 start");setTimeout(function(){console.log("2 end");next()}, 5000)}, function(next){console.log("22 start");setTimeout(function(){console.log("22 end");next()}, 1000)}, function(next){console.log("222 start");setTimeout(function(){console.log("222 end");next()}, 1000)}];
-loop.ping(arr1, arr2, 1, function(err){
-	console.log("end");
+Case17 Start => Ping function. [[function...], [function...], concurrency, isAllEnd, callback]
+"arg1 function end" then "arg2 function async call"
+arg1, arg2 required. other args option.
+concurrency - default : 1
+isAllEnd - default : false
+
+
+example
+
+var arr1 = [
+	function(next){
+		console.log("1 start");
+		setTimeout(function(){
+			console.log("1 end");
+			next(null, 1);
+		}, 2000);
+	}, 
+	function(next){
+		console.log("11 start");
+		setTimeout(function(){
+			console.log("11 end");
+			next(null, 11);
+		}, 1000)
+	}, 
+	function(next){
+		console.log("111 start");
+		setTimeout(function(){
+			console.log("111 end");
+			next(null, 111);
+		}, 3000)
+	}];
+var arr2 = [
+	function(data, next){
+		console.log("2 start");
+		setTimeout(function(){
+			console.log("2 end");
+			next(null, data*10)
+		}, 5000)
+	}, 
+	function(data, next){
+		console.log("22 start");
+		setTimeout(function(){
+			console.log("22 end");
+			next(null, data*10)
+		}, 1000)
+	}, 
+	function(data, next){
+		console.log("222 start");
+		setTimeout(function(){
+			console.log("222 end");
+			next(null, data*10)
+		}, 1000)
+	}];
+loop.ping(arr1, arr2, false, function(err){
+	console.log("end", arguments);
 });
+
+/* result *
+1 start
+1 end
+11 start
+2 start
+11 end
+111 start
+22 start
+22 end
+111 end
+222 start
+222 end
+2 end
+end { '0': undefined, '1': [ 1, 11, 111 ], '2': [ 10, 110, 1110 ] }
+*/
+
+
+/* example 2 
+loop.ping(arr1, arr2, false, function(err){
+	console.log("end", arguments);
+});
+
+/* result *
+
+1 start
+1 end
+11 start
+2 start
+11 end
+111 start
+22 start
+22 end
+111 end
+end { '0': undefined, '1': [ 1, 11, 111 ], '2': [ , 110,  ] }
+222 start
+2 end
+222 end
 */

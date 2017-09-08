@@ -484,3 +484,49 @@ end { '0': undefined, '1': [ 1, 11, 111 ], '2': [ , 110,  ] }
 2 end
 222 end
 */
+
+//Case18 Start => once parallel. after series Processing
+/*
+loop.once([1,2,3,4,5], 2, function(i, value, next){
+	setTimeout(function(){
+		console.log(i, "=", value);
+		next();
+	}, 1000);
+}, function(err, results){
+	console.log("result",arguments);
+});
+*/
+
+
+
+
+/*
+//Case19 Start => tick parallel(arg : array, tick-time(ms), concurrency, callback)
+console.log(new Date(), "start");
+loop.tick([1,2,3,4,5,6,7,8,9,10], 1000, 3, function(i, value, next){
+	console.log(new Date(), i, "=", value);
+	setTimeout(function(){
+		next();
+	}, 2000);
+}, function(err){
+	console.log(new Date(), "end", arguments);
+});
+*/
+/*
+//result
+2017-09-08T01:43:23.774Z 'start'
+2017-09-08T01:43:23.779Z 0 '=' 1
+2017-09-08T01:43:23.781Z 1 '=' 2
+2017-09-08T01:43:23.781Z 2 '=' 3
+2017-09-08T01:43:24.782Z 3 '=' 4
+2017-09-08T01:43:24.782Z 4 '=' 5
+2017-09-08T01:43:24.782Z 5 '=' 6
+2017-09-08T01:43:25.783Z 6 '=' 7
+2017-09-08T01:43:25.784Z 7 '=' 8
+2017-09-08T01:43:25.784Z 8 '=' 9
+2017-09-08T01:43:26.783Z 9 '=' 10
+2017-09-08T01:43:28.784Z 'end' { '0': null }
+*/
+
+
+
